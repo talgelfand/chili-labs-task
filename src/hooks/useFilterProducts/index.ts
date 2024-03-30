@@ -7,7 +7,6 @@ export const useFilterProducts = (allProducts: Product[]) => {
     useState<Product[]>(allProducts);
 
   function searchProducts(searchValue: string) {
-    console.log(searchValue);
     const newProducts = filterProducts(allProducts, searchValue);
     setFilteredProducts(newProducts);
   }

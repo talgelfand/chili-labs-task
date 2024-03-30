@@ -5,7 +5,7 @@ import { ParsedUrlQuery } from "querystring";
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as ParsedUrlQuery;
 
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const res = await fetch(`${process.env.PRODUCTS_API_URL}/${id}`);
   const product = await res.json();
 
   return { props: { product } };

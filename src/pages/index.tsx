@@ -8,10 +8,8 @@ import Error from "next/error";
 import { useContext } from "react";
 
 export const getServerSideProps = async () => {
-  const apiUrl = "https://fakestoreapi.com/products";
-
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch(process.env.PRODUCTS_API_URL!);
     const products = await res.json();
     return {
       props: { allProducts: products },
